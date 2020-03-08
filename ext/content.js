@@ -12,7 +12,7 @@ if(jsonContents && jsonContents.length >= 2) {
     if(o1['@type'] == "NewsArticle" && o1['isAccessibleForFree'] == "False") {
       docContent = o1['articleBody']
     }
-    else if(o2['@type'] == "NewsArticle" && o1['isAccessibleForFree'] == "False") {
+    else if(o2['@type'] == "NewsArticle" && o2['isAccessibleForFree'] == "False") {
       docContent = o2['articleBody']
     }
 
