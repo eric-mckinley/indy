@@ -60,6 +60,13 @@ if (introSection && articleDataScripts && articleDataScripts.length > 0) {
                 q_element.style.cssText = q_style
                 article_div.appendChild(q_element)
              }
+
+             var other = subData[section]["legacy-ml"]
+             if (other) {
+                const doc = parser.parseFromString(other, 'text/html');
+                const other_element = doc.body.firstChild;
+                article_div.appendChild(other_element)
+             }
          }
     }
 }
