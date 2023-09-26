@@ -1,4 +1,4 @@
 #!/bin/bash
 mkdir -p dist
-cd ext;
+cd indy;
 zip -v -j -D -r ../dist/indy.zip *

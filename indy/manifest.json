@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "indynews",
+  "description": "View premium Irish news articles. Chrome extension install at https://github.com/eric-mckinley/indy",
+  "version": "0.8",
+  "icons": {
+    "48": "indy-48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.independent.ie/*",
+        "https://independent.ie/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
