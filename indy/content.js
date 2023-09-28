@@ -61,6 +61,22 @@ if (introSection && articleDataScripts && articleDataScripts.length > 0) {
                 article_div.appendChild(q_element)
              }
 
+            var img_section = subData[section]["image"]
+            if (img_section) {
+                const full_size_image_url = img_section["url"]
+                var view_image_url = full_size_image_url
+                const source_sets = img_section["sourcesets"]
+                for (const img_set in source_sets) {
+                    if (img_set["key"] != "xlarge" && img_set["key"] != "xxlarge") {
+                        view_image_url = img_set["url"]
+                    }
+                }
+                const doc = parser.parseFromString("<p><a href=\""+ full_size_image_url +"\" target=\"_blank\"><img src=\"" + view_image_url + "\"/></a></p>", 'text/html');
+                const p_element = doc.body.firstChild;
+                p_element.style.cssText = p_style
+                article_div.appendChild(p_element)
+            }
+
              var other = subData[section]["legacy-ml"]
              if (other) {
                 const doc = parser.parseFromString(other, 'text/html');
