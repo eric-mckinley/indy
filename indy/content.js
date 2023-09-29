@@ -71,7 +71,8 @@ if (introSection && articleDataScripts && articleDataScripts.length > 0) {
                         view_image_url = img_set["url"]
                     }
                 }
-                const doc = parser.parseFromString("<p><a href=\""+ full_size_image_url +"\" target=\"_blank\"><img src=\"" + view_image_url + "\"/></a></p>", 'text/html');
+                const doc = parser.parseFromString("<p><a href=\""
+                        + full_size_image_url +"\" target=\"_blank\"><img src=\"" + view_image_url + "\"/></a><span style='color:666666;font-size:14px;'>" +img_section["caption"] +"</span></p>", 'text/html');
                 const p_element = doc.body.firstChild;
                 p_element.style.cssText = p_style
                 article_div.appendChild(p_element)
