@@ -62,15 +62,9 @@ if (introSection && articleDataScripts && articleDataScripts.length > 0) {
              }
 
             var img_section = subData[section]["image"]
-            if (img_section) {
-                const full_size_image_url = img_section["url"]
-                var view_image_url = full_size_image_url
-                const source_sets = img_section["sourcesets"]
-                for (const img_set in source_sets) {
-                    if (img_set["key"] != "xlarge" && img_set["key"] != "xxlarge") {
-                        view_image_url = img_set["url"]
-                    }
-                }
+            if (img_section && img_section["cropped"]) {
+
+                const full_size_image_url = img_section["cropped"]["url"]
                 const doc = parser.parseFromString("<p><a href=\""
                         + full_size_image_url +"\" target=\"_blank\"><img src=\"" + view_image_url + "\"/></a><span style='color:666666;font-size:14px;'>" +img_section["caption"] +"</span></p>", 'text/html');
                 const p_element = doc.body.firstChild;
