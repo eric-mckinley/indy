@@ -64,9 +64,9 @@ if (introSection && articleDataScripts && articleDataScripts.length > 0) {
             var img_section = subData[section]["image"]
             if (img_section && img_section["cropped"]) {
 
-                const full_size_image_url = img_section["cropped"]["url"]
+                const view_image_url = img_section["cropped"]["url"]
                 const doc = parser.parseFromString("<p><a href=\""
-                        + full_size_image_url +"\" target=\"_blank\"><img src=\"" + view_image_url + "\"/></a><span style='color:666666;font-size:14px;'>" +img_section["caption"] +"</span></p>", 'text/html');
+                        + view_image_url +"\" target=\"_blank\"><img src=\"" + view_image_url + "\"/></a><span style='color:666666;font-size:14px;'>" +img_section["caption"] +"</span></p>", 'text/html');
                 const p_element = doc.body.firstChild;
                 p_element.style.cssText = p_style
                 article_div.appendChild(p_element)
